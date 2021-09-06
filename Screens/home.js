@@ -15,14 +15,16 @@ export default class Home extends React.Component{
 
 componentDidMount(){
             this.getPlanets()
+            console.log(this.state.listData)
         }
-    getPlanets=()=>{
+    getPlanets=async()=>{
         const url = this.state.url
         axios.get(url).then(
             Response=>{
+                console.log(Response.data)
                 return(
                     this.setState({
-                        listData:Response.data.data
+                        listData:Response.data
                     }
                     )
                 )
@@ -62,6 +64,7 @@ componentDidMount(){
                 </View>
             )
         }
+  
         return(
             <View 
             style={styles.container}
